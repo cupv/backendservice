@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Test.Services;
-//using Test.Data.Repositories;
 using Newtonsoft.Json.Serialization;
-using Test.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Test.Utils;
+using Test.Data.Repositories;
+using Test.Services;
 
 namespace Test
 {
@@ -30,8 +30,10 @@ namespace Test
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build();
             });
-            //services.AddTransient<IStudentRepository, StudentRepository>();
-            //services.AddTransient<IStudentService, StudentService>();
+            services.AddTransient<ILessionService, LessionService>();
+            services.AddTransient<ILessionRepository, LessionRepository>();
+            services.AddTransient<ICourseService, CourseService>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
 
             services.AddControllersWithViews()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
