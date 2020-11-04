@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Test.Models;
 using Test.Utils;
 namespace Test.Controllers
 {
@@ -6,9 +7,9 @@ namespace Test.Controllers
     public class AuthenticationController : ControllerBase
     {
         [HttpGet("/api/Authentication")]
-        public string GetToken(string userName)
+        public string GetToken(User user)
         {
-            return Authetication.GenerateJsonWebToken();
+            return Authetication.GenerateJsonWebToken(user);
         }
     }
 }

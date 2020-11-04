@@ -30,6 +30,8 @@ namespace Test
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build();
             });
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ILessionService, LessionService>();
             services.AddTransient<ILessionRepository, LessionRepository>();
             services.AddTransient<ICourseService, CourseService>();
