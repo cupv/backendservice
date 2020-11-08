@@ -65,16 +65,24 @@ namespace Test.Controllers
         }
 
         [HttpPost("/api/Login")]
-        public string SignIn(User user)
+        public string Login(User user)
         {
             User _user = new User();
             try
             {
                 _user = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
-                var results = Utils.Utils.VerifyPassword(user.Password, _user.Salt, _user.Password);
-                if (results)
+                if (user != null)
                 {
-                    return Authetication.GenerateJsonWebToken(_user);
+
+                    var results = Utils.Utils.VerifyPassword(user.Password, _user.Salt, _user.Password);
+                    if (results)
+                    {
+                        return Authetication.GenerateJsonWebToken(_user);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 else
                 {
