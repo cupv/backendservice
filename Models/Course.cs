@@ -8,5 +8,6 @@ namespace Test.Models
     public class Course : Enity
     {
         public string Name { set; get; }
+        public string Code { set; get; }
     }
 }

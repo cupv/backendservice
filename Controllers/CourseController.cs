@@ -42,7 +42,7 @@ namespace Test.Controllers
             return result;
         }
 
-        [HttpPost("/api/Course")]
+        [HttpPost("/api/Courses")]
         public void Create(Course request)
         {
             Course course = new Course();

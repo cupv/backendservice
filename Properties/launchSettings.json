@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost:5000/api/GetAllStudents",
+      "applicationUrl": "http://localhost:2222",
       "sslPort": 0
     },
     "iisExpress": {
@@ -22,18 +22,17 @@
       }
     },
     "Test": {
-      "commandName": "Project",
+      "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "api/GetAllStudents",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      "nativeDebugging": false,
+      "applicationUrl": "https://localhost:5001;http://localhost:2222"
     },
     "IIS": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/api/GetAllStudents",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
