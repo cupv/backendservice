@@ -9,10 +9,13 @@ using Test.Utils;
 using Test.Data.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Test.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Test.Controllers
 {
+
     [ApiController]
+
     public class UserController : ControllerBase
     {
         public IUserService userService;
@@ -22,11 +25,11 @@ namespace Test.Controllers
             userService = _userService;
             context = new FactoryContext().Init();
         }
-
         [HttpGet("/api/User/{id}")]
         public User GetById(string id)
         {
             User user = new User();
+
             if (id == null)
             {
                 throw new ArgumentNullException();
@@ -37,7 +40,7 @@ namespace Test.Controllers
             }
             return user;
         }
-
+        [Authorize]
         [HttpPost("/api/GetAllUsers")]
         public PagingDataSource<IEnumerable<User>> GetAllExpand(GetAllUsers request)
         {
@@ -46,7 +49,7 @@ namespace Test.Controllers
             result.Total = result.Data.Count();
             return result;
         }
-
+        [Authorize]
         [HttpPost("/api/Register")]
         public void Register(User user)
         {
@@ -57,6 +60,30 @@ namespace Test.Controllers
                 user.Password = hashsalt.Hash;
                 user.Salt = hashsalt.Salt;
                 userService.Create(user);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        [Authorize]
+        [HttpPost("/api/Users")]
+        public void Create(User user)
+        {
+            try
+            {
+                User _user = new User();
+                if (user.Id != Guid.Empty)
+                {
+                    userService.Update(user);
+                }
+                else
+                {
+                    var hashsalt = Utils.Utils.EncryptPassword(user.Password);
+                    user.Password = hashsalt.Hash;
+                    user.Salt = hashsalt.Salt;
+                    userService.Create(user);
+                }
             }
             catch (Exception e)
             {
@@ -94,6 +121,7 @@ namespace Test.Controllers
                 throw e;
             }
         }
+        [Authorize]
         [HttpDelete("/api/Users/{id}")]
         public void Remove(string id)
         {

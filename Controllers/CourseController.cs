@@ -5,10 +5,12 @@ using Test.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Test.Controllers
 {
     [ApiController]
+    [Authorize]
     public class CourseController : ControllerBase
     {
         public ICourseService courseService;
