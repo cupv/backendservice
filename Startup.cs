@@ -36,6 +36,10 @@ namespace Test
             services.AddTransient<ILessionRepository, LessionRepository>();
             services.AddTransient<ICourseService, CourseService>();
             services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<IClassService, ClassService>();
+            services.AddTransient<IClassRepository, ClassRepository>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
 
             services.AddControllersWithViews()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)

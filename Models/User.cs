@@ -22,8 +22,7 @@ namespace Test.Models
         public Role Role { set; get; }
         public Guid? GradeId { set; get; }
         public Grade Grade { set; get; }
-        public Guid? ClassId { set; get; }
-        public Class Class { set; get; }
+        public virtual ICollection<ClassUser> ClassUser { get; set; }
         public Guid? TeamId { set; get; }
         public Team Team { set; get; }
     }

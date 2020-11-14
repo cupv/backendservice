@@ -20,7 +20,8 @@ namespace Test.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
-
+        //public DbSet<KHSV> KHSVs { get; set; }
+        public DbSet<ClassUser> ClassUsers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
@@ -43,6 +44,8 @@ namespace Test.Data
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new TeamConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassUserConfiguration());
+          
         }
     }
 }

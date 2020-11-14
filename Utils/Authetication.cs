@@ -41,7 +41,7 @@ namespace Test.Utils
                 ValidAudience = "Elearning",
                 ValidateAudience = true,
                 IssuerSigningKey = credentials.Key,
-                ClockSkew = TimeSpan.FromMinutes(30)
+                ClockSkew = TimeSpan.FromDays(7),
             };
 
             service.AddAuthentication(options =>

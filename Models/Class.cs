@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Test.Models
 {
@@ -7,5 +8,7 @@ namespace Test.Models
         public string Name { set; get; }
         public Guid CourseId { set; get; }
         public Course Course { set; get; }
+
+        public virtual ICollection<ClassUser> ClassUser { get; set; }
     }
 }

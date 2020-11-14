@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test.Data;
 
 namespace Test.Migrations
 {
     [DbContext(typeof(TestContext))]
-    partial class TestContextModelSnapshot : ModelSnapshot
+    [Migration("20201112081923_mtm")]
+    partial class mtm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,21 +90,6 @@ namespace Test.Migrations
                     b.ToTable("Class");
                 });
 
-            modelBuilder.Entity("Test.Models.ClassUser", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClassId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserId", "ClassId");
-
-                    b.HasIndex("ClassId");
-
-                    b.ToTable("ClassUsers");
-                });
-
             modelBuilder.Entity("Test.Models.Course", b =>
                 {
                     b.Property<Guid>("Id")
@@ -150,6 +137,44 @@ namespace Test.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Grades");
+                });
+
+            modelBuilder.Entity("Test.Models.KH", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Modified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("KHs");
+                });
+
+            modelBuilder.Entity("Test.Models.KHSV", b =>
+                {
+                    b.Property<Guid>("SVId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("KHId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SVId", "KHId");
+
+                    b.HasIndex("KHId");
+
+                    b.ToTable("KHSVs");
                 });
 
             modelBuilder.Entity("Test.Models.Lession", b =>
@@ -243,6 +268,29 @@ namespace Test.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("Test.Models.SV", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Modified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SVs");
+                });
+
             modelBuilder.Entity("Test.Models.Team", b =>
                 {
                     b.Property<Guid>("Id")
@@ -277,6 +325,9 @@ namespace Test.Migrations
 
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ClassId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<long?>("Code")
                         .HasColumnType("bigint");
@@ -331,6 +382,8 @@ namespace Test.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClassId");
+
                     b.HasIndex("GradeId");
 
                     b.HasIndex("GradeId1");
@@ -351,17 +404,17 @@ namespace Test.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Test.Models.ClassUser", b =>
+            modelBuilder.Entity("Test.Models.KHSV", b =>
                 {
-                    b.HasOne("Test.Models.Class", "Class")
-                        .WithMany("ClassUser")
-                        .HasForeignKey("ClassId")
+                    b.HasOne("Test.Models.KH", "KH")
+                        .WithMany("KHSVs")
+                        .HasForeignKey("KHId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Test.Models.User", "User")
-                        .WithMany("ClassUser")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Test.Models.SV", "SV")
+                        .WithMany("KHSVs")
+                        .HasForeignKey("SVId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -386,6 +439,10 @@ namespace Test.Migrations
 
             modelBuilder.Entity("Test.Models.User", b =>
                 {
+                    b.HasOne("Test.Models.Class", "Class")
+                        .WithMany()
+                        .HasForeignKey("ClassId");
+
                     b.HasOne("Test.Models.Grade", "Grade")
                         .WithMany()
                         .HasForeignKey("GradeId");
