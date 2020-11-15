@@ -9,5 +9,6 @@ namespace Test.Models
     {
         public string Name { set; get; }
         public string Code { set; get; }
+        public List<Class> Class { set; get; }
     }
 }

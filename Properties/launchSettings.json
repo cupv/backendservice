@@ -4,7 +4,8 @@
     "anonymousAuthentication": true,
     "iis": {
       "applicationUrl": "http://localhost:2222",
-      "sslPort": 0
+      "sslPort": 0,
+      "launchUrl": "swagger"
     },
     "iisExpress": {
       "applicationUrl": "http://localhost:54483",
@@ -16,7 +17,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "/api/GetAllStudents",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -24,6 +25,7 @@
     "Test": {
       "commandName": "IIS",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Test.Utils;
 using Test.Data.Repositories;
 using Test.Services;
+using Microsoft.OpenApi.Models;
 
 namespace Test
 {
@@ -40,29 +41,46 @@ namespace Test
             services.AddTransient<IClassRepository, ClassRepository>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<ITeamService, TeamService>();
+            services.AddTransient<ITeamRepository, TeamRepository>();
 
             services.AddControllersWithViews()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                     .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-            services.AddCors(options =>
+            services.AddSwaggerGen(c =>
             {
-                options.AddDefaultPolicy(
-             builder =>
-             {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Graduation Thesis",
+                    Description = "Resfull API with ASP.NET Core",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Cuwr and HoangNguyen",
+                    },
+                });
+            });
 
-                 builder
+
+            services.AddCors(options =>
+             {
+                 options.AddDefaultPolicy(
+                 builder =>
+                 {
+
+                     builder
                  .AllowAnyOrigin()
                  .AllowAnyMethod()
                  .AllowAnyHeader();
-             });
+                 });
 
-                options.AddPolicy("MyCORSPolicy",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:3000").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                    });
-            });
+                 options.AddPolicy("MyCORSPolicy",
+                     builder =>
+                     {
+                         builder.WithOrigins("http://localhost:3000").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                     });
+             });
 
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
@@ -80,11 +98,19 @@ namespace Test
             }
             app.UseHttpsRedirection();
 
+
             app.UseRouting();
 
             app.UseCors("MyCORSPolicy");
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Graduation Thesis");
+            });
 
             app.UseEndpoints(endpoints =>
             {

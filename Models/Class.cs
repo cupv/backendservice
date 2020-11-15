@@ -10,5 +10,6 @@ namespace Test.Models
         public Course Course { set; get; }
 
         public virtual ICollection<ClassUser> ClassUser { get; set; }
+        public List<Team> Teams { set; get; }
     }
 }

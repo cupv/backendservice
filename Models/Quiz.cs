@@ -22,5 +22,6 @@ namespace Test.Models
     {
         public string Label { set; get; }
         public string Value { set; get; }
+        public bool Choice { set; get; }
     }
 }

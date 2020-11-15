@@ -9,6 +9,7 @@ namespace Test.Models
     {
         public string Name { set; get; }
         public string Slogan { set; get; }
-
+        public Guid ClassId { set; get; }
+        public Class Class { set; get; }
     }
 }
