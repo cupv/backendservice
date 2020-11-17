@@ -45,7 +45,8 @@ namespace Test.Data
             modelBuilder.ApplyConfiguration(new TeamConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ClassUserConfiguration());
-          
+            modelBuilder.ApplyConfiguration(new QuizConfiguration());
+            modelBuilder.ApplyConfiguration(new QuestionConfiguration());
         }
     }
 }

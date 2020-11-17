@@ -3,46 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test.Data;
 
 namespace Test.Migrations
 {
     [DbContext(typeof(TestContext))]
-    partial class TestContextModelSnapshot : ModelSnapshot
+    [Migration("20201115171758_AddTableQuizQuestion")]
+    partial class AddTableQuizQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Test.Models.Answer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Choice")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Labsel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("QuestionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("Answer");
-                });
 
             modelBuilder.Entity("Test.Models.Campaign", b =>
                 {
@@ -242,76 +219,6 @@ namespace Test.Migrations
                     b.ToTable(" Places");
                 });
 
-            modelBuilder.Entity("Test.Models.Question", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("QuizId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Required")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuizId");
-
-                    b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("Test.Models.Quiz", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CourseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("LessionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("LessionId");
-
-                    b.ToTable("Quizs");
-                });
-
             modelBuilder.Entity("Test.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -442,13 +349,6 @@ namespace Test.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Test.Models.Answer", b =>
-                {
-                    b.HasOne("Test.Models.Question", null)
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionId");
-                });
-
             modelBuilder.Entity("Test.Models.Class", b =>
                 {
                     b.HasOne("Test.Models.Course", "Course")
@@ -489,28 +389,6 @@ namespace Test.Migrations
                         .HasForeignKey("LessionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Test.Models.Question", b =>
-                {
-                    b.HasOne("Test.Models.Quiz", "Quiz")
-                        .WithMany()
-                        .HasForeignKey("QuizId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Test.Models.Quiz", b =>
-                {
-                    b.HasOne("Test.Models.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Test.Models.Lession", "Lession")
-                        .WithMany()
-                        .HasForeignKey("LessionId");
                 });
 
             modelBuilder.Entity("Test.Models.Team", b =>
