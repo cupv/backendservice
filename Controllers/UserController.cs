@@ -41,8 +41,8 @@ namespace API.Controllers
             return user;
         }
         [Authorize]
-        [HttpPost("/api/GetAllUsers")]
-        public PagingDataSource<IEnumerable<User>> GetAllExpand(GetAllUsers request)
+        [HttpPost("/api/GetAllUser")]
+        public PagingDataSource<IEnumerable<User>> GetAllExpand(GetAllUser request)
         {
             var result = new PagingDataSource<IEnumerable<User>> { Total = 0 };
             result.Data = userService.GetAll(request.Expand).AsQueryable().ParseOData(request).ToList();
@@ -67,7 +67,7 @@ namespace API.Controllers
             }
         }
         [Authorize]
-        [HttpPost("/api/Users")]
+        [HttpPost("/api/User")]
         public void Create(User user)
         {
             try
@@ -122,7 +122,7 @@ namespace API.Controllers
             }
         }
         [Authorize]
-        [HttpDelete("/api/Users/{id}")]
+        [HttpDelete("/api/User/{id}")]
         public void Remove(string id)
         {
             User lession = new User();
@@ -138,7 +138,7 @@ namespace API.Controllers
         }
     }
 
-    public class GetAllUsers : ODataRequest
+    public class GetAllUser : ODataRequest
     {
         public string[] Expand { set; get; }
     }

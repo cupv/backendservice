@@ -8,7 +8,7 @@ namespace API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Quiz> builder)
         {
-            builder.ToTable("Quizs");
+            builder.ToTable("Quiz");
             builder.HasKey(o => o.Id);
         }
     }

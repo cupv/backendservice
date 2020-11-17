@@ -8,7 +8,7 @@ namespace API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Place> builder)
         {
-            builder.ToTable(" Places");
+            builder.ToTable(" Place");
             builder.HasKey(o => o.Id);
             builder.HasOne<Lession>(c => c.Lession).WithMany().HasForeignKey("LessionId");
         }

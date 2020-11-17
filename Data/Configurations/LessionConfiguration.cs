@@ -8,7 +8,7 @@ namespace API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Lession> builder)
         {
-            builder.ToTable("Lessions");
+            builder.ToTable("Lession");
             builder.HasOne<Course>(l => l.Course).WithMany().HasForeignKey("CourseId");
         }
 

@@ -19,7 +19,7 @@ namespace API.Controllers
             teamService = _teamService;
         }
 
-        [HttpGet("/api/Teams/{id}")]
+        [HttpGet("/api/Team/{id}")]
         public Team GetById(string id)
         {
             Team team = new Team();
@@ -34,8 +34,8 @@ namespace API.Controllers
             return team;
         }
 
-        [HttpPost("/api/GetAllTeams")]
-        public PagingDataSource<IEnumerable<Team>> GetAllExpand(GetAllTeams request)
+        [HttpPost("/api/GetAllTeam")]
+        public PagingDataSource<IEnumerable<Team>> GetAllExpand(GetAllTeam request)
         {
             var result = new PagingDataSource<IEnumerable<Team>> { Total = 0 };
             result.Data = teamService.GetAll(request.Expand).AsQueryable().ParseOData(request).ToList();
@@ -43,7 +43,7 @@ namespace API.Controllers
             return result;
         }
 
-        [HttpPost("/api/Teams")]
+        [HttpPost("/api/Team")]
         public void Create(Team request)
         {
             Team team = new Team();
@@ -65,7 +65,7 @@ namespace API.Controllers
                 throw e;
             }
         }
-        [HttpDelete("/api/Teams/{id}")]
+        [HttpDelete("/api/Team/{id}")]
         public void Remove(string id)
         {
             Team Team = new Team();
@@ -81,7 +81,7 @@ namespace API.Controllers
         }
     }
 
-    public class GetAllTeams : ODataRequest
+    public class GetAllTeam : ODataRequest
     {
         public string[] Expand { set; get; }
     }

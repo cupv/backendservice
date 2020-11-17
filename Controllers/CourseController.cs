@@ -20,7 +20,7 @@ namespace API.Controllers
         }
 
 
-        [HttpGet("/api/Courses/{id}")]
+        [HttpGet("/api/Course/{id}")]
         public Course GetById(string id)
         {
             Course course = new Course();
@@ -35,7 +35,7 @@ namespace API.Controllers
             return course;
         }
 
-        [HttpPost("/api/GetAllCourses")]
+        [HttpPost("/api/GetAllCourse")]
         public PagingDataSource<IEnumerable<Course>> GetAllExpand(GetAllCourses request)
         {
             var result = new PagingDataSource<IEnumerable<Course>> { Total = 0 };
@@ -44,7 +44,7 @@ namespace API.Controllers
             return result;
         }
 
-        [HttpPost("/api/Courses")]
+        [HttpPost("/api/Course")]
         public void Create(Course request)
         {
             Course course = new Course();
@@ -66,7 +66,7 @@ namespace API.Controllers
                 throw e;
             }
         }
-        [HttpDelete("/api/Courses/{id}")]
+        [HttpDelete("/api/Course/{id}")]
         public void Remove(string id)
         {
             Course course = new Course();

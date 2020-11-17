@@ -20,7 +20,7 @@ namespace API.Controllers
         }
 
 
-        [HttpGet("/api/Roles/{id}")]
+        [HttpGet("/api/Role/{id}")]
         public Role GetById(string id)
         {
             Role role = new Role();
@@ -35,8 +35,8 @@ namespace API.Controllers
             return role;
         }
 
-        [HttpPost("/api/GetAllRoles")]
-        public PagingDataSource<IEnumerable<Role>> GetAllExpand(GetAllRoles request)
+        [HttpPost("/api/GetAllRole")]
+        public PagingDataSource<IEnumerable<Role>> GetAllExpand(GetAllRole request)
         {
             var result = new PagingDataSource<IEnumerable<Role>> { Total = 0 };
             result.Data = roleService.GetAll(request.Expand).AsQueryable().ParseOData(request).ToList();
@@ -44,7 +44,7 @@ namespace API.Controllers
             return result;
         }
 
-        [HttpPost("/api/Roles")]
+        [HttpPost("/api/Role")]
         public void Create(Role request)
         {
             Role role = new Role();
@@ -66,7 +66,7 @@ namespace API.Controllers
                 throw e;
             }
         }
-        [HttpDelete("/api/Roles/{id}")]
+        [HttpDelete("/api/Role/{id}")]
         public void Remove(string id)
         {
             Role role = new Role();
@@ -82,7 +82,7 @@ namespace API.Controllers
         }
     }
 
-    public class GetAllRoles : ODataRequest
+    public class GetAllRole : ODataRequest
     {
         public string[] Expand { set; get; }
     }

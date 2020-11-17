@@ -18,7 +18,7 @@ namespace API.Controllers
         }
 
 
-        [HttpGet("/api/Lessions/{id}")]
+        [HttpGet("/api/Lession/{id}")]
         public Lession GetById(string id)
         {
             Lession lession = new Lession();
@@ -33,8 +33,8 @@ namespace API.Controllers
             return lession;
         }
 
-        [HttpPost("/api/GetAllLessions")]
-        public PagingDataSource<IEnumerable<Lession>> GetAllExpand(GetAllLessions request)
+        [HttpPost("/api/GetAllLession")]
+        public PagingDataSource<IEnumerable<Lession>> GetAllExpand(GetAllLession request)
         {
             var result = new PagingDataSource<IEnumerable<Lession>> { Total = 0 };
             result.Data = lessionService.GetAll(request.Expand).AsQueryable().ParseOData(request).ToList();
@@ -64,7 +64,7 @@ namespace API.Controllers
                 throw e;
             }
         }
-        [HttpDelete("/api/Lessions/{id}")]
+        [HttpDelete("/api/Lession/{id}")]
         public void Remove(string id)
         {
             Lession lession = new Lession();
@@ -80,7 +80,7 @@ namespace API.Controllers
         }
     }
 
-    public class GetAllLessions : ODataRequest
+    public class GetAllLession : ODataRequest
     {
         public string[] Expand { set; get; }
     }
