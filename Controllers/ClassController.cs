@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Test.Services;
-using Test.Controllers.Infrastructure;
-using Test.Models;
+using API.Services;
+using API.Controllers.Infrastructure;
+using API.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Test.Controllers
+namespace API.Controllers
 {
     [ApiController]
     [Authorize]

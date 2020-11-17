@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Test.Data.Repositories;
-using Test.Models;
-using Test.Services.Infrastructure;
+using API.Data.Repositories;
+using API.Models;
+using API.Services.Infrastructure;
 
-namespace Test.Services
+namespace API.Services
 {
     public class CourseService : ServiceBase<Course>, ICourseService
     {

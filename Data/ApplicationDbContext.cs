@@ -1,34 +1,33 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
-using Test.Models;
-using Test.Data.Configurations;
-namespace Test.Data
+using API.Models;
+using API.Data.Configurations;
+namespace API.Data
 {
-    public class TestContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         private IConfigurationRoot configuration;
-        public TestContext() : base()
+        public ApplicationDbContext() : base()
         {
 
         }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Campaign> Campaigns { get; set; }
-        public DbSet<Class> Classs { get; set; }
-        public DbSet<Grade> Grades { get; set; }
-        public DbSet<Lession> Lessions { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Team> Teams { get; set; }
-        public DbSet<User> Users { get; set; }
-        //public DbSet<KHSV> KHSVs { get; set; }
-        public DbSet<ClassUser> ClassUsers { get; set; }
+        public DbSet<Course> Course { get; set; }
+        public DbSet<Campaign> Campaign { get; set; }
+        public DbSet<Class> Class { get; set; }
+        public DbSet<Grade> Grade { get; set; }
+        public DbSet<Lession> Lession { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Team> Team { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<ClassUser> ClassUser { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
              .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
              .AddJsonFile("appsettings.json")
              .Build();
-            string connectionString = configuration.GetConnectionString("Connectionstring");
+            string connectionString = configuration.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

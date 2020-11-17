@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Test.Models;
+using API.Models;
 
-namespace Test.Data.Configurations
+namespace API.Data.Configurations
 {
     public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {

@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Test.Services;
-using Test.Controllers.Infrastructure;
-using Test.Models;
+using API.Services;
+using API.Controllers.Infrastructure;
+using API.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using Test.Utils;
-using Test.Data.Infrastructure;
+using API.Utils;
+using API.Data.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Test.Data;
+using API.Data;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Test.Controllers
+namespace API.Controllers
 {
 
     [ApiController]
@@ -19,7 +19,7 @@ namespace Test.Controllers
     public class UserController : ControllerBase
     {
         public IUserService userService;
-        public TestContext context;
+        public ApplicationDbContext context;
         public UserController(IUserService _userService)
         {
             userService = _userService;
@@ -97,7 +97,7 @@ namespace Test.Controllers
             User _user = new User();
             try
             {
-                _user = context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+                _user = context.User.FirstOrDefault(u => u.UserName == user.UserName);
                 if (user != null)
                 {
 

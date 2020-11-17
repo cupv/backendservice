@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Test.Models;
-using Test.Utils;
-namespace Test.Controllers
+using API.Models;
+using API.Utils;
+namespace API.Controllers
 {
     [ApiController]
     public class AuthenticationController : ControllerBase

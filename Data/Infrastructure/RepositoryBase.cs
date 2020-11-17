@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Test.Data.Infrastructure
+namespace API.Data.Infrastructure
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         public DbSet<T> dbSet;
-        public TestContext dbContext = new FactoryContext().Init();
+        public ApplicationDbContext dbContext = new FactoryContext().Init();
         public RepositoryBase()
         {
             dbSet = dbContext.Set<T>();

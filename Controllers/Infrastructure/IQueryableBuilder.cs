@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Community.OData.Linq;
 
-namespace Test.Controllers.Infrastructure
+namespace API.Controllers.Infrastructure
 {
     public static class IQueryableExtensions
     {

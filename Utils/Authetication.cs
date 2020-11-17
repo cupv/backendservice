@@ -5,11 +5,11 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Test.Models;
+using API.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Test.Utils
+namespace API.Utils
 {
     public static class Authetication
     {

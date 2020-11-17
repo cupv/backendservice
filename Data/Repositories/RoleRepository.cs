@@ -1,8 +1,8 @@
 ﻿
-using Test.Data.Infrastructure;
-using Test.Models;
+using API.Data.Infrastructure;
+using API.Models;
 
-namespace Test.Data.Repositories
+namespace API.Data.Repositories
 {
     public class RoleRepository : RepositoryBase<Role>, IRoleRepository
     {

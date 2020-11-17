@@ -2,11 +2,11 @@
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Threading.Tasks;
-//using Test.Data.Infrastructure;
-//using Test.Models;
-//using Test.Services;
+//using API.Data.Infrastructure;
+//using API.Models;
+//using API.Services;
 
-//namespace Test.Data.Repositories
+//namespace API.Data.Repositories
 //{
 //    public class StudentRepository : RepositoryBase<Student>, IStudentRepository
 //    {

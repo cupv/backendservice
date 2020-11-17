@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Test.Models
+namespace API.Models
 {
     public class Class : Enity
     {

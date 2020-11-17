@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Test.Data.Infrastructure;
-using Test.Models;
+using API.Data.Infrastructure;
+using API.Models;
 
-namespace Test.Data.Repositories
+namespace API.Data.Repositories
 {
     public interface ILessionRepository : IRepositoryBase<Lession>
     {

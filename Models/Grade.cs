@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace Test.Models
+namespace API.Models
 {
     public class Grade : Enity
     {

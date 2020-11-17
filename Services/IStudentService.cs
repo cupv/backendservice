@@ -2,10 +2,10 @@
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Threading.Tasks;
-//using Test.Models;
-//using Test.Services.Infrastructure;
+//using API.Models;
+//using API.Services.Infrastructure;
 
-//namespace Test.Services
+//namespace API.Services
 //{
 //    //public interface IStudentService : IServiceBase<Student>
 //    {

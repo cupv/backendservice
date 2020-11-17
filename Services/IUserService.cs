@@ -1,7 +1,7 @@
-﻿using Test.Models;
-using Test.Services.Infrastructure;
+﻿using API.Models;
+using API.Services.Infrastructure;
 
-namespace Test.Services
+namespace API.Services
 {
     public interface IUserService : IServiceBase<User>
     {

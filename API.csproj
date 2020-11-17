@@ -5,37 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201027162621_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027162621_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027162807_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027162807_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027162931_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027162931_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027163510_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027163510_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027163935_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027163935_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027164130_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027164130_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027164234_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027164234_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027164301_update-Grade.cs" />
-    <Compile Remove="Migrations\20201027164301_update-Grade.Designer.cs" />
-    <Compile Remove="Migrations\20201027165738_AddTable.cs" />
-    <Compile Remove="Migrations\20201027165738_AddTable.Designer.cs" />
-    <Compile Remove="Migrations\20201027165843_AddTable.cs" />
-    <Compile Remove="Migrations\20201027165843_AddTable.Designer.cs" />
-    <Compile Remove="Migrations\20201027170040_AddTable.cs" />
-    <Compile Remove="Migrations\20201027170040_AddTable.Designer.cs" />
-    <Compile Remove="Migrations\20201103160807_addlessiontable.cs" />
-    <Compile Remove="Migrations\20201103160807_addlessiontable.Designer.cs" />
-    <Compile Remove="Migrations\20201103163138_AddTableV2.cs" />
-    <Compile Remove="Migrations\20201103163138_AddTableV2.Designer.cs" />
-    <Compile Remove="Migrations\20201103163932_creattable.cs" />
-    <Compile Remove="Migrations\20201103163932_creattable.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Community.OData.Linq" Version="1.4.2" />
     <PackageReference Include="Community.OData.Linq.AspNetCore" Version="1.4.2" />
     <PackageReference Include="Community.OData.Linq.Json" Version="1.4.2" />

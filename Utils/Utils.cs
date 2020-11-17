@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Test.Utils
+namespace API.Utils
 {
     public class Utils
     {

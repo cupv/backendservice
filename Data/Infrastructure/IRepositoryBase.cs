@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Test.Data.Infrastructure
+namespace API.Data.Infrastructure
 {
     public interface IRepositoryBase<T> where T : class
     {

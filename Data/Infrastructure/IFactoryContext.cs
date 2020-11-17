@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Test.Data;
+using API.Data;
 
-namespace Test.Data.Infrastructure
+namespace API.Data.Infrastructure
 {
     public interface IFactoryContext
     {
-        TestContext Init();
+        ApplicationDbContext Init();
     }
 }

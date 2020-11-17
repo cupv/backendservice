@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Test.Services.Infrastructure
+namespace API.Services.Infrastructure
 {
     public interface IServiceBase<T> where T : class
     {

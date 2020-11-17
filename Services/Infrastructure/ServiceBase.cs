@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Test.Data.Infrastructure;
+using API.Data.Infrastructure;
 
-namespace Test.Services.Infrastructure
+namespace API.Services.Infrastructure
 {
     public class ServiceBase<T> : IServiceBase<T> where T : class
     {

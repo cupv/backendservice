@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Runtime.Serialization;
 
-namespace Test.Controllers.Infrastructure
+namespace API.Controllers.Infrastructure
 {
     public class ODataRequest
     {

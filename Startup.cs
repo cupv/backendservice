@@ -7,12 +7,12 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Test.Utils;
-using Test.Data.Repositories;
-using Test.Services;
+using API.Utils;
+using API.Data.Repositories;
+using API.Services;
 using Microsoft.OpenApi.Models;
 
-namespace Test
+namespace API
 {
     public class Startup
     {
