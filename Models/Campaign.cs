@@ -16,4 +16,14 @@ namespace API.Models
         public Guid UserId { set; get; }
     }
 
+    public class Setting
+    {
+        List<Site> Sites { get; set; }
+    }
+
+    public class Site {
+        public string Location { get; set; }
+        public Guid LessionId { get; set; }
+        public Guid QuizId { get; set; }
+    }
 }
