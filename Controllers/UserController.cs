@@ -98,7 +98,7 @@ namespace API.Controllers
             try
             {
                 _user = context.User.FirstOrDefault(u => u.UserName == user.UserName);
-                if (user != null)
+                if (_user != null)
                 {
 
                     var results = Utils.Utils.VerifyPassword(user.Password, _user.Salt, _user.Password);
