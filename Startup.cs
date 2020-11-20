@@ -43,7 +43,10 @@ namespace API
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<ITeamRepository, TeamRepository>();
-
+            services.AddTransient<IQuizService, QuizService>();
+            services.AddTransient<IQuizRepository, QuizRepository>();
+            services.AddTransient<IQuestionService, QuestionService>();
+            services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddControllersWithViews()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                     .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());

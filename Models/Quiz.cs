@@ -7,7 +7,7 @@ namespace API.Models
 {
     public class Quiz : Enity
     {
-        public string Name { set; get; }
+        public string Title { set; get; }
         public string Description { set; get; }
         public Guid? LessionId { set; get; }
         public Lession Lession { set; get; }
@@ -23,7 +23,7 @@ namespace API.Models
         public Guid QuizId { set; get; }
 
         public Quiz Quiz { set; get; }
-        public List<Answer> Answers { set; get; }
+        public string Answers { set; get; }
     }
     public class Answer
     {
