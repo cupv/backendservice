@@ -3,7 +3,7 @@ using API.Services.Infrastructure;
 
 namespace API.Services
 {
-    public interface ILessionService : IServiceBase<Lession>
+    public interface ILessonService : IServiceBase<Lesson>
     {
     }
 }

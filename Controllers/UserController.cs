@@ -125,15 +125,15 @@ namespace API.Controllers
         [HttpDelete("/api/User/{id}")]
         public void Remove(string id)
         {
-            User lession = new User();
+            User user = new User();
             if (id == null)
             {
                 throw new ArgumentNullException();
             }
             else
             {
-                lession = userService.GetById(new Guid(id));
-                userService.Delete(lession);
+                user = userService.GetById(new Guid(id));
+                userService.Delete(user);
             }
         }
     }

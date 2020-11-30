@@ -10,7 +10,7 @@ namespace API.Data.Configurations
         {
             builder.ToTable(" Place");
             builder.HasKey(o => o.Id);
-            builder.HasOne<Lession>(c => c.Lession).WithMany().HasForeignKey("LessionId");
+            builder.HasOne<Lesson>(c => c.Lession).WithMany().HasForeignKey("LessionId");
         }
     }
 }

@@ -8,9 +8,9 @@ using API.Services.Infrastructure;
 
 namespace API.Services
 {
-    public class LessionService : ServiceBase<Lession>, ILessionService
+    public class LessonService : ServiceBase<Lesson>, ILessonService
     {
-        public LessionService(ILessionRepository repository) : base(repository)
+        public LessonService(ILessonRepository repository) : base(repository)
         {
 
         }

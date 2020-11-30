@@ -9,8 +9,6 @@ namespace API.Models
     {
         public string Title { set; get; }
         public string Description { set; get; }
-        public Guid? LessionId { set; get; }
-        public Lession Lession { set; get; }
         public Guid CourseId { set; get; }
         public Course Course { set; get; }
     }

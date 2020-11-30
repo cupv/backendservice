@@ -4,11 +4,11 @@ using API.Models;
 
 namespace API.Data.Configurations
 {
-    public class LessionConfiguration : IEntityTypeConfiguration<Lession>
+    public class LessonConfiguration : IEntityTypeConfiguration<Lesson>
     {
-        public void Configure(EntityTypeBuilder<Lession> builder)
+        public void Configure(EntityTypeBuilder<Lesson> builder)
         {
-            builder.ToTable("Lession");
+            builder.ToTable("Lesson");
             builder.HasOne<Course>(l => l.Course).WithMany().HasForeignKey("CourseId");
         }
 

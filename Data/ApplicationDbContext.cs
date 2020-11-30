@@ -16,7 +16,7 @@ namespace API.Data
         public DbSet<Campaign> Campaign { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Grade> Grade { get; set; }
-        public DbSet<Lession> Lession { get; set; }
+        public DbSet<Lesson> Lesson { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Team> Team { get; set; }
         public DbSet<User> User { get; set; }
@@ -34,7 +34,7 @@ namespace API.Data
         {
 
             modelBuilder.ApplyConfiguration(new CourseConfiguration());
-            modelBuilder.ApplyConfiguration(new LessionConfiguration());
+            modelBuilder.ApplyConfiguration(new LessonConfiguration());
             modelBuilder.ApplyConfiguration(new CampaignConfiguration());
             modelBuilder.ApplyConfiguration(new ClassConfiguration());
             modelBuilder.ApplyConfiguration(new CourseConfiguration());

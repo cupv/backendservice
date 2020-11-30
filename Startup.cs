@@ -33,8 +33,8 @@ namespace API
             });
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<ILessionService, LessionService>();
-            services.AddTransient<ILessionRepository, LessionRepository>();
+            services.AddTransient<ILessonService, LessonService>();
+            services.AddTransient<ILessonRepository, LessonRepository>();
             services.AddTransient<ICourseService, CourseService>();
             services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddTransient<IClassService, ClassService>();

@@ -7,7 +7,7 @@ using API.Models;
 
 namespace API.Data.Repositories
 {
-    public interface ILessionRepository : IRepositoryBase<Lession>
+    public interface ILessonRepository : IRepositoryBase<Lesson>
     {
     }
 }
