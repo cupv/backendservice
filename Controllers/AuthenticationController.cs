@@ -11,5 +11,10 @@ namespace API.Controllers
         {
             return Authetication.GenerateJsonWebToken(user);
         }
+        [HttpGet("/api/VerifyToken")]
+        public string VerifyToken(string token)
+        {
+            return Authetication.VerifyJsonWebToken(token);
+        }
     }
 }

@@ -23,8 +23,32 @@ namespace API.Utils
                 new Claim("User" ,JsonSerializer.Serialize(user)),
             };
 
-            JwtSecurityToken token = new JwtSecurityToken("Elearning", "Elearning", claims, DateTime.UtcNow, expires: DateTime.Now.AddMinutes(10), signingCredentials: credentials);
+            JwtSecurityToken token = new JwtSecurityToken("Elearning", "Elearning", claims, DateTime.UtcNow, expires: DateTime.Now.AddDays(300), signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public static string VerifyJsonWebToken(string token)
+        {
+            Claim info  = null;
+
+            SymmetricSecurityKey secret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("B607148F7A90A019F177AED30507F624"));
+            var handler = new JwtSecurityTokenHandler();
+            var validations = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = secret,
+                ValidateLifetime = true,
+                ValidIssuer = "Elearning",
+                ValidateAudience = true,
+                ValidAudience = "Elearning",
+            };
+            var claims = handler.ValidateToken(token, validations, out var tokenSecure);
+            foreach (var claim in claims.Claims)
+            {
+                info = claim;
+                break;
+            }
+            return info.ToString();
         }
 
         internal static TokenValidationParameters tokenValidationParams;
